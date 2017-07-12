@@ -1,3 +1,3 @@
 # deploy_tomcat_app
 
-TODO: Enter the cookbook description here.
+Cookbook to deploy Tomcat Applications in a big number of nodes
