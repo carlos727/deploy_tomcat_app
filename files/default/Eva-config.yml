@@ -1,0 +1,59 @@
+---
+hibernate:
+    cache:
+        queries: false
+        use_second_level_cache: true
+        use_query_cache: false
+        region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+
+dataSource:
+    pooled: true
+    jmxExport: true
+    url: data_source_url
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    username: data_source_username
+    password: data_source_password
+
+environments:
+    development:
+        dataSource:
+          url: data_source_url
+          driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+          username: data_source_username
+          password: data_source_password
+
+    test:
+        dataSource:
+            dbCreate: update
+            url: data_source_url
+    production:
+        dataSource:
+          url: data_source_url
+          driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+          username: data_source_username
+          password: data_source_password
+          properties:
+                jmxEnabled: true
+                initialSize: 5
+                maxActive: 50
+                minIdle: 5
+                maxIdle: 25
+                maxWait: 10000
+                maxAge: 600000
+                timeBetweenEvictionRunsMillis: 5000
+                minEvictableIdleTimeMillis: 60000
+                validationQuery: SELECT 1
+                validationQueryTimeout: 3
+                validationInterval: 15000
+                testOnBorrow: true
+                testWhileIdle: true
+                testOnReturn: false
+                jdbcInterceptors: ConnectionState
+                defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
+localidad:
+    codigo:
+        localidad: localidad_codigo
+    nombre:
+        localidad: localidad_nombre
+    url:
+        central: localidad_url_central

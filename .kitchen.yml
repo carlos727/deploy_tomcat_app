@@ -19,7 +19,7 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[deploy_pdt::default]
+      - recipe[deploy_tomcat_app::default]
     verifier:
       inspec_tests:
         - test/recipes

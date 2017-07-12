@@ -6,7 +6,7 @@
 
 require 'spec_helper'
 
-describe 'deploy_tomcat_app::default' do
+describe 'deploy_tomcat_app::download_sw_64bits' do
   context 'When all attributes are default, on an unspecified platform' do
     let(:chef_run) do
       runner = ChefSpec::ServerRunner.new
